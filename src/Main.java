@@ -1,4 +1,6 @@
+import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -22,9 +24,46 @@ public class Main {
         mentoria.setData(LocalDate.now());
 
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);
+//        System.out.println(curso1);
+//        System.out.println(curso2);
+//        System.out.println(mentoria);
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Dev");
+        bootcamp.setDescricao("Descricao Bootcamp Java Dev");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devMike = new Dev();
+        devMike.setNome("Mike");
+        devMike.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos Inscritos Mike: " + devMike.getConteudosInscritos());
+
+        System.out.println("Mike progrediu...");
+        devMike.progredir();
+
+        System.out.println("Conteudos Inscritos Mike: " + devMike.getConteudosInscritos());
+        System.out.println("Conteudos Concluídos Mike: " + devMike.getConteudosConcluidos());
+        System.out.println("XP de Mike: " + devMike.calcularXp());
+
+        System.out.println("---------------------------------------------------------------------------------");
+
+        Dev devJoao = new Dev();
+        devJoao.setNome("Joao");
+        devJoao.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos Inscritos João: " + devJoao.getConteudosInscritos());
+
+        System.out.println("João progrediu...");
+        devJoao.progredir();
+        devJoao.progredir();
+
+        System.out.println("Conteudos Inscritos João: " + devJoao.getConteudosInscritos());
+
+        System.out.println("Conteudos Concluídos João: " + devJoao.getConteudosConcluidos());
+        System.out.println("XP de João: " + devJoao.calcularXp());
+
+
 
     }
 }
